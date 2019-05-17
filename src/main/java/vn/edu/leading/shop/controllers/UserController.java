@@ -2,6 +2,7 @@ package vn.edu.leading.shop.controllers;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Controller
-public class UserController extends BaseController<UserModel> {
+public class UserController {
 
     private final UserService userService;
 
@@ -28,12 +29,17 @@ public class UserController extends BaseController<UserModel> {
 
     private final MailService mailService;
 
-    public UserController(BaseRepository<UserModel, ?> baseRepository, BaseService<UserModel> baseService, UserService userService, RoleRepository roleRepository, PasswordEncoder passwordEncoder, MailService mailService) {
-        super(baseRepository, baseService);
+    public UserController(UserService userService, RoleRepository roleRepository, PasswordEncoder passwordEncoder, MailService mailService) {
         this.userService = userService;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
         this.mailService = mailService;
+    }
+
+    @GetMapping("/admin/users")
+    public String users(Model model) {
+        model.addAttribute("users", userService.findAll());
+        return "admin/pages/users";
     }
 
     @GetMapping("/user/new")

@@ -27,6 +27,12 @@ public class OrderDetailController {
         return "orderDetails/list";
     }
 
+    @GetMapping("/admin/orderDetails")
+    public String orderDetails(Model model) {
+        model.addAttribute("orderDetails", orderDetailService.findAll());
+        return "admin/pages/orderDetails";
+    }
+
     @GetMapping("/orderDetails/add")
     public String add(Model model) {
         model.addAttribute("orderDetailModel", new OrderDetailModel());

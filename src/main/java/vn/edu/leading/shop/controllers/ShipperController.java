@@ -29,6 +29,12 @@ public class ShipperController {
         return "shippers/list";
     }
 
+    @GetMapping("/admin/shippers")
+    public String shippers(Model model) {
+        model.addAttribute("shippers", shipperService.findAll());
+        return "admin/pages/shippers";
+    }
+
     @GetMapping("shippers/search")
     public String search(@RequestParam("term") String term, Model model) {
         if (StringUtils.isEmpty(term)) {

@@ -29,6 +29,12 @@ public class ProductController {
         return "products/list";
     }
 
+    @GetMapping("/admin/products")
+    public String products(Model model) {
+        model.addAttribute("products", productService.findAll());
+        return "admin/pages/products";
+    }
+
     @GetMapping("products/search")
     public String search(@RequestParam("term") String term, Model model) {
         if (StringUtils.isEmpty(term)) {

@@ -10,22 +10,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vn.edu.leading.shop.models.CategoryModel;
-import vn.edu.leading.shop.repositories.BaseRepository;
-import vn.edu.leading.shop.services.BaseService;
+import vn.edu.leading.shop.services.CategoryService;
 
 import javax.validation.Valid;
 
 @Controller
-public class CategoryController extends BaseController<CategoryModel> {
+public class CategoryController  {
 
-    public CategoryController(BaseRepository<CategoryModel, ?> baseRepository, BaseService<CategoryModel> baseService) {
-        super(baseRepository, baseService);
+   public final CategoryService categoryService;
+
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/categories")
     public String list(Model model) {
-        model.addAttribute("categories", baseService.findAll());
+        model.addAttribute("categories", categoryService.findAll());
         return "categories/list";
+    }
+
+    @GetMapping("/admin/categories")
+    public String categories(Model model) {
+        model.addAttribute("categories", categoryService.findAll());
+        return "admin/pages/categories";
     }
 
     @GetMapping("categories/search")
@@ -33,7 +40,7 @@ public class CategoryController extends BaseController<CategoryModel> {
         if (StringUtils.isEmpty(term)) {
             return "redirect:/categories";
         }
-        model.addAttribute("categories", baseService.search("categoryName", term));
+        model.addAttribute("categories", categoryService.search(term));
         return "categories/list";
     }
 
@@ -45,7 +52,7 @@ public class CategoryController extends BaseController<CategoryModel> {
 
     @GetMapping("/categories/{id}/edit")
     public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("categoryModel", baseService.findById(id));
+        model.addAttribute("categoryModel", categoryService.findById(id));
         return "categories/form";
     }
 
@@ -54,14 +61,14 @@ public class CategoryController extends BaseController<CategoryModel> {
         if (result.hasErrors()) {
             return "categories/form";
         }
-        baseService.save(category);
+        categoryService.save(category);
         redirect.addFlashAttribute("successMessage", "Saved category successfully!");
         return "redirect:/categories";
     }
 
     @GetMapping("/categories/{id}/delete")
     public String delete(@PathVariable Long id, RedirectAttributes redirect) {
-        if (baseService.delete(id)) {
+        if (categoryService.delete(id)) {
             redirect.addFlashAttribute("successMessage", "Deleted category successfully!");
             return "redirect:/categories";
         } else {
