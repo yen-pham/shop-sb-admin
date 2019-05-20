@@ -35,6 +35,13 @@ public class SupplierController {
         return "admin/pages/suppliers";
     }
 
+    @PostMapping("admin/suppliers")
+    public String save(@Valid SupplierModel supplier, Model model) {
+        supplierService.save(supplier);
+        model.addAttribute("suppliers", supplierService.findAll());
+        return "admin/pages/suppliers";
+    }
+
     @GetMapping("suppliers/search")
     public String search(@RequestParam("term") String term, Model model) {
         if (StringUtils.isEmpty(term)) {

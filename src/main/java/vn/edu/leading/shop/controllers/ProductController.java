@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vn.edu.leading.shop.models.ProductModel;
+import vn.edu.leading.shop.services.CategoryService;
 import vn.edu.leading.shop.services.ProductService;
+import vn.edu.leading.shop.services.SupplierService;
 
 import javax.validation.Valid;
 
@@ -19,8 +21,14 @@ public class ProductController {
 
     private final ProductService productService;
 
-    public ProductController(ProductService productService) {
+    private final CategoryService categoryService;
+
+    private final SupplierService supplierService;
+
+    public ProductController(ProductService productService, CategoryService categoryService, SupplierService supplierService) {
         this.productService = productService;
+        this.categoryService = categoryService;
+        this.supplierService = supplierService;
     }
 
     @GetMapping("/products")
@@ -30,8 +38,10 @@ public class ProductController {
     }
 
     @GetMapping("/admin/products")
-    public String products(Model model) {
+    public String product(Model model) {
         model.addAttribute("products", productService.findAll());
+        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("suppliers", supplierService.findAll());
         return "admin/pages/products";
     }
 
@@ -56,14 +66,17 @@ public class ProductController {
         return "products/form";
     }
 
-    @PostMapping("/products/save")
-    public String save(@Valid ProductModel product, BindingResult result, RedirectAttributes redirect) {
+    @PostMapping("admin/products")
+    public String save(@Valid ProductModel product, BindingResult result, RedirectAttributes redirect,Model model) {
         if (result.hasErrors()) {
-            return "products/form";
+            return "admin/pages/products";
         }
         productService.save(product);
+        model.addAttribute("products", productService.findAll());
+        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("suppliers", supplierService.findAll());
         redirect.addFlashAttribute("successMessage", "Saved product successfully!");
-        return "redirect:/products";
+        return "admin/pages/products";
     }
 
     @GetMapping("/products/{id}/delete")

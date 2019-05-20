@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import vn.edu.leading.shop.controllers.api.dto.CustomerDTO;
 import vn.edu.leading.shop.models.CustomerModel;
 import vn.edu.leading.shop.services.CustomerService;
 
+import javax.jws.WebParam;
 import javax.validation.Valid;
 
 @Controller
@@ -23,11 +25,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/customers")
-    public String list(Model model) {
-        model.addAttribute("customers", customerService.findAll());
-        return "customers/list";
-    }
+
 
     @GetMapping("/admin/customers")
     public String customers(Model model) {
@@ -45,6 +43,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/add")
+
     public String add(Model model) {
         model.addAttribute("customerModel", new CustomerModel());
         return "customers/form";
@@ -56,24 +55,23 @@ public class CustomerController {
         return "customers/form";
     }
 
-    @PostMapping("/customers/save")
-    public String save(@Valid CustomerModel customer, BindingResult result, RedirectAttributes redirect) {
-        if (result.hasErrors()) {
-            return "customers/form";
-        }
+    @PostMapping("admin/customers")
+    public String save(@Valid CustomerModel customer, Model model) {
         customerService.save(customer);
-        redirect.addFlashAttribute("successMessage", "Saved customer successfully!");
-        return "redirect:/customers";
+        model.addAttribute("customers", customerService.findAll());
+        return "admin/pages/customers";
     }
 
-    @GetMapping("/customers/{id}/delete")
-    public String delete(@PathVariable Long id, RedirectAttributes redirect) {
+    @GetMapping("/admin/customers/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes redirect, Model model) {
         if (customerService.delete(id)) {
             redirect.addFlashAttribute("successMessage", "Deleted customer successfully!");
-            return "redirect:/customers";
+            model.addAttribute("customers", customerService.findAll());
+            return "admin/pages/customers";
         } else {
             redirect.addFlashAttribute("successMessage", "Not found!!!");
-            return "redirect:/customers";
+            model.addAttribute("customers", customerService.findAll());
+            return "admin/pages/customers";
         }
     }
 }

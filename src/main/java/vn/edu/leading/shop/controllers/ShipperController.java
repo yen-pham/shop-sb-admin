@@ -35,6 +35,13 @@ public class ShipperController {
         return "admin/pages/shippers";
     }
 
+    @PostMapping("admin/shippers")
+    public String save(@Valid ShipperModel shipper, Model model) {
+        shipperService.save(shipper);
+        model.addAttribute("shippers", shipperService.findAll());
+        return "admin/pages/shippers";
+    }
+
     @GetMapping("shippers/search")
     public String search(@RequestParam("term") String term, Model model) {
         if (StringUtils.isEmpty(term)) {

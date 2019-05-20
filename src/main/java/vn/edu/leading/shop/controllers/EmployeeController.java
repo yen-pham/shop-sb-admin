@@ -35,6 +35,13 @@ public class EmployeeController {
         return "admin/pages/employees";
     }
 
+    @PostMapping("admin/employees")
+    public String save(@Valid EmployeeModel employee, Model model) {
+        employeeService.save(employee);
+        model.addAttribute("employees", employeeService.findAll());
+        return "admin/pages/employees";
+    }
+
     @GetMapping("employees/search")
     public String search(@RequestParam("term") String term, Model model) {
         if (StringUtils.isEmpty(term)) {
