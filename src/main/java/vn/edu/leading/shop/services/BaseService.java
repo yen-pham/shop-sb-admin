@@ -72,6 +72,7 @@ public class BaseService<T extends BaseModel<T>> implements Serializable {
         baseRepository.deleteAllInBatch();
     }
 
+
     public T getOne(T entity) {
         return baseRepository.getOne(entity.getId());
     }

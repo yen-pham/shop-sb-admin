@@ -34,12 +34,6 @@ public class OrderController {
         this.shipperService = shipperService;
     }
 
-    @GetMapping("/orders")
-    public String list(Model model) {
-        model.addAttribute("orders", orderService.findAll());
-        return "orders/list";
-    }
-
     @GetMapping("/admin/orders")
     public String orders(Model model) {
         model.addAttribute("orders", orderService.findAll());
@@ -63,42 +57,22 @@ public class OrderController {
         return "admin/pages/orders";
     }
 
-    @GetMapping("/orders/add")
-    public String add(Model model) {
-        model.addAttribute("orderModel", new OrderModel());
-        return "orders/form";
-    }
-
-    @GetMapping("/orders/{id}/edit")
-    public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("orderModel", orderService.findById(id));
-        return "orders/form";
-    }
-
-    @GetMapping("/orders/{id}")
-    public String viewDetail(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("orderDetails", orderService.findAllOrderDetailById(id));
-        return "orderDetails/list";
-    }
-
-    @PostMapping("/orders/save")
-    public String save(@Valid OrderModel order, BindingResult result, RedirectAttributes redirect) {
-        if (result.hasErrors()) {
-            return "orders/form";
-        }
-        orderService.save(order);
-        redirect.addFlashAttribute("successMessage", "Saved order successfully!");
-        return "redirect:/orders";
-    }
-
     @GetMapping("/orders/{id}/delete")
-    public String delete(@PathVariable Long id, RedirectAttributes redirect) {
+    public String delete(@PathVariable Long id, RedirectAttributes redirect,Model model) {
         if (orderService.delete(id)) {
             redirect.addFlashAttribute("successMessage", "Deleted order successfully!");
-            return "redirect:/orders";
+            model.addAttribute("orders", orderService.findAll());
+            model.addAttribute("employees", employeeService.findAll());
+            model.addAttribute("customers", customerService.findAll());
+            model.addAttribute("shippers", shipperService.findAll());
+            return "admin/pages/orders";
         } else {
             redirect.addFlashAttribute("successMessage", "Not found!!!");
-            return "redirect:/orders";
+            model.addAttribute("orders", orderService.findAll());
+            model.addAttribute("employees", employeeService.findAll());
+            model.addAttribute("customers", customerService.findAll());
+            model.addAttribute("shippers", shipperService.findAll());
+            return "admin/pages/orders";
         }
     }
 }

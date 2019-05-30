@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import vn.edu.leading.shop.models.RoleModel;
 import vn.edu.leading.shop.models.UserModel;
-import vn.edu.leading.shop.repositories.BaseRepository;
 import vn.edu.leading.shop.repositories.RoleRepository;
-import vn.edu.leading.shop.services.BaseService;
 import vn.edu.leading.shop.services.MailService;
 import vn.edu.leading.shop.services.UserService;
 
@@ -39,6 +37,16 @@ public class UserController {
     @GetMapping("/admin/users")
     public String users(Model model) {
         model.addAttribute("users", userService.findAll());
+        model.addAttribute("roles", roleRepository.findAll());
+
+        return "admin/pages/users";
+    }
+
+    @PostMapping("/admin/users")
+    public String save(UserModel userModel, Model model) {
+        userService.save(userModel);
+        model.addAttribute("users", userService.findAll());
+        model.addAttribute("roles", roleRepository.findAll());
         return "admin/pages/users";
     }
 

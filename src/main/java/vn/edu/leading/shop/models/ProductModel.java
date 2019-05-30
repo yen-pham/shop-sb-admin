@@ -27,6 +27,10 @@ public class ProductModel extends BaseModel<ProductModel> {
     @Column(name = "product_name", nullable = false)
     private String productName;
 
+    private String imageurl;
+
+    private String description;
+
     private String unit;
 
     private Double price;

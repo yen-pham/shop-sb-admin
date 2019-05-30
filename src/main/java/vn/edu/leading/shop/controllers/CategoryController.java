@@ -23,12 +23,6 @@ public class CategoryController  {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/categories")
-    public String list(Model model) {
-        model.addAttribute("categories", categoryService.findAll());
-        return "categories/list";
-    }
-
     @GetMapping("/admin/categories")
     public String categories(Model model) {
         model.addAttribute("categories", categoryService.findAll());
@@ -42,35 +36,10 @@ public class CategoryController  {
         return "admin/pages/categories";
     }
 
-    @GetMapping("categories/search")
-    public String search(@RequestParam("term") String term, Model model) {
-        if (StringUtils.isEmpty(term)) {
-            return "redirect:/categories";
-        }
-        model.addAttribute("categories", categoryService.search(term));
-        return "categories/list";
-    }
-
-    @GetMapping("/categories/add")
-    public String add(Model model) {
-        model.addAttribute("categoryModel", new CategoryModel());
-        return "categories/form";
-    }
-
     @GetMapping("/categories/{id}/edit")
     public String edit(@PathVariable("id") Long id, Model model) {
         model.addAttribute("categoryModel", categoryService.findById(id));
         return "categories/form";
-    }
-
-    @PostMapping("/categories/save")
-    public String save(@Valid CategoryModel category, BindingResult result, RedirectAttributes redirect) {
-        if (result.hasErrors()) {
-            return "categories/form";
-        }
-        categoryService.save(category);
-        redirect.addFlashAttribute("successMessage", "Saved category successfully!");
-        return "redirect:/categories";
     }
 
     @GetMapping("/admin/categories/{id}/delete")
@@ -84,7 +53,5 @@ public class CategoryController  {
             model.addAttribute("categories", categoryService.findAll());
             return "admin/pages/categories";
         }
-
-
     }
 }

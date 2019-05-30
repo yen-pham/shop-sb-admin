@@ -48,4 +48,5 @@ public class UserServicelmpl extends BaseService<UserModel> implements UserServi
         userModel.setPassword(passwordEncoder.encode(userModel.getPassword()));
         baseRepository.save(userModel);
     }
+
 }
