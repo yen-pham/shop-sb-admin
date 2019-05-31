@@ -33,6 +33,8 @@ public class ProductModel extends BaseModel<ProductModel> {
 
     private String unit;
 
+
+
     private Double price;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)

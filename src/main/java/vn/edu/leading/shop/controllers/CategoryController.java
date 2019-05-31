@@ -36,12 +36,6 @@ public class CategoryController  {
         return "admin/pages/categories";
     }
 
-    @GetMapping("/categories/{id}/edit")
-    public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("categoryModel", categoryService.findById(id));
-        return "categories/form";
-    }
-
     @GetMapping("/admin/categories/{id}/delete")
     public String delete(@PathVariable Long id, RedirectAttributes redirect,Model model) {
         if (categoryService.delete(id)) {

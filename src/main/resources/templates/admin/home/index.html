@@ -17,8 +17,8 @@
     <link rel="icon" href="img/core-img/favicon.ico">
 
     <!-- Core Style CSS -->
-    <link rel="stylesheet" href="css/core-style.css" th:href="@{/home/css/core-style.css}"/>
-    <link rel="stylesheet" href="style.css" th:href="@{/home/style.css}"/>
+    <link rel="stylesheet"  th:href="@{/css/core-style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/-stylehome.css}"/>
 
 </head>
 
@@ -71,11 +71,11 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="product-details.html">Product</a></li>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
+                    <li class="active"><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/shop}">Shop</a></li>
+                    <li><a th:href="@{/product-details}">Product</a></li>
+                    <li><a th:href="@{/cart}">Cart</a></li>
+                    <li><a th:href="@{/checkout}">Checkout</a></li>
                 </ul>
             </nav>
             <!-- Button Group -->
