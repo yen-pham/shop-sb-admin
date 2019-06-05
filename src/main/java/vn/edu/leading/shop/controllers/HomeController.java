@@ -5,9 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import vn.edu.leading.shop.models.CategoryModel;
 import vn.edu.leading.shop.services.CategoryService;
 import vn.edu.leading.shop.services.ProductService;
 import vn.edu.leading.shop.services.SupplierService;
+
+import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -32,24 +35,22 @@ public class HomeController {
         return "admin/home/shop";
     }
 
-    @GetMapping("/shop/{id}/show")
-    public String showProduct(@PathVariable Long id, RedirectAttributes redirect, Model model) {
-        if (categoryService.delete(id)) {
-            redirect.addFlashAttribute("successMessage", "Deleted category successfully!");
-            model.addAttribute("categories", categoryService.findAll());
-            return "admin/pages/categories";
-        } else {
-            redirect.addFlashAttribute("successMessage", "Not found!!!");
-            model.addAttribute("categories", categoryService.findAll());
-            return "admin/pages/categories";
-        }
-    }
-
-//    @GetMapping("/shop")
-//    public String shop() {
-//        return "admin/home/shop";
+//    @GetMapping("/shop/{id}/show")
+//    public String showProduct(@PathVariable Long id, RedirectAttributes redirect, Model model) {
+//       Optional<CategoryModel> categoryModel =categoryService.findById(id);
+//          model.addAttribute("products",categoryModel.get().getProducts());
+//          return  "admin/home/shop";
 //    }
 
+    @GetMapping("/productdetail/{id}")
+    public String product(@PathVariable("id") Long id,Model model) {
+        model.addAttribute("productModel", productService.findById(id));
 
+        return "admin/home/product-details";
+    }
 
+    @GetMapping("/add-to-cart")
+    public String addToCart() {
+        return "admin/home/cart";
+    }
 }

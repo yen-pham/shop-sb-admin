@@ -52,7 +52,7 @@ public class ProductModel extends BaseModel<ProductModel> {
     @OneToMany(
             mappedBy = "productModel",
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             orphanRemoval = true
     )
     @Fetch(FetchMode.SELECT)

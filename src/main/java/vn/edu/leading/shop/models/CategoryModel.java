@@ -31,7 +31,7 @@ public class CategoryModel extends BaseModel<CategoryModel> {
     @OneToMany(
             mappedBy = "categoryModel",
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             orphanRemoval = true
     )
     @Fetch(FetchMode.SELECT)
