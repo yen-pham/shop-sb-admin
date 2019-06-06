@@ -1,78 +1,68 @@
-id;product_name;supplier_id;category_id;unit;price
-1;Chais;1;1;10 boxes x 20 bags;18
-2;Chang;1;1;24 - 12 oz bottles;19
-3;Aniseed Syrup;1;2;12 - 550 ml bottles;10
-4;Chef Anton's Cajun Seasoning;2;2;48 - 6 oz jars;22
-5;Chef Anton's Gumbo Mix;2;2;36 boxes;21.35
-6;Grandma's Boysenberry Spread;3;2;12 - 8 oz jars;25
-7;Uncle Bob's Organic Dried Pears;3;7;12 - 1 lb pkgs.;30
-8;Northwoods Cranberry Sauce;3;2;12 - 12 oz jars;40
-9;Mishi Kobe Niku;4;6;18 - 500 g pkgs.;97
-10;Ikura;4;8;12 - 200 ml jars;31
-11;Queso Cabrales;5;4;1 kg pkg.;21
-12;Queso Manchego La Pastora;5;4;10 - 500 g pkgs.;38
-13;Konbu;6;8;2 kg box;6
-14;Tofu;6;7;40 - 100 g pkgs.;23.25
-15;Genen Shouyu;6;2;24 - 250 ml bottles;15.5
-16;Pavlova;7;3;32 - 500 g boxes;17.45
-17;Alice Mutton;7;6;20 - 1 kg tins;39
-18;Carnarvon Tigers;7;8;16 kg pkg.;62.5
-19;Teatime Chocolate Biscuits;8;3;10 boxes x 12 pieces;9.2
-20;Sir Rodney's Marmalade;8;3;30 gift boxes;81
-21;Sir Rodney's Scones;8;3;24 pkgs. x 4 pieces;10
-22;Gustaf's Knäckebröd;9;5;24 - 500 g pkgs.;21
-23;Tunnbröd;9;5;12 - 250 g pkgs.;9
-24;Guaraná Fantástica;10;1;12 - 355 ml cans;4.5
-25;NuNuCa Nuß-Nougat-Creme;11;3;20 - 450 g glasses;14
-26;Gumbär Gummibärchen;11;3;100 - 250 g bags;31.23
-27;Schoggi Schokolade;11;3;100 - 100 g pieces;43.9
-28;Rössle Sauerkraut;12;7;25 - 825 g cans;45.6
-29;Thüringer Rostbratwurst;12;6;50 bags x 30 sausgs.;123.79
-30;Nord-Ost Matjeshering;13;8;10 - 200 g glasses;25.89
-31;Gorgonzola Telino;14;4;12 - 100 g pkgs;12.5
-32;Mascarpone Fabioli;14;4;24 - 200 g pkgs.;32
-33;Geitost;15;4;500 g;2.5
-34;Sasquatch Ale;16;1;24 - 12 oz bottles;14
-35;Steeleye Stout;16;1;24 - 12 oz bottles;18
-36;Inlagd Sill;17;8;24 - 250 g jars;19
-37;Gravad lax;17;8;12 - 500 g pkgs.;26
-38;Côte de Blaye;18;1;12 - 75 cl bottles;263.5
-39;Chartreuse verte;18;1;750 cc per bottle;18
-40;Boston Crab Meat;19;8;24 - 4 oz tins;18.4
-41;Jack's New England Clam Chowder;19;8;12 - 12 oz cans;9.65
-42;Singaporean Hokkien Fried Mee;20;5;32 - 1 kg pkgs.;14
-43;Ipoh Coffee;20;1;16 - 500 g tins;46
-44;Gula Malacca;20;2;20 - 2 kg bags;19.45
-45;Røgede sild;21;8;1k pkg.;9.5
-46;Spegesild;21;8;4 - 450 g glasses;12
-47;Zaanse koeken;22;3;10 - 4 oz boxes;9.5
-48;Chocolade;22;3;10 pkgs.;12.75
-49;Maxilaku;23;3;24 - 50 g pkgs.;20
-50;Valkoinen suklaa;23;3;12 - 100 g bars;16.25
-51;Manjimup Dried Apples;24;7;50 - 300 g pkgs.;53
-52;Filo Mix;24;5;16 - 2 kg boxes;7
-53;Perth Pasties;24;6;48 pieces;32.8
-54;Tourtière;25;6;16 pies;7.45
-55;Pâté chinois;25;6;24 boxes x 2 pies;24
-56;Gnocchi di nonna Alice;26;5;24 - 250 g pkgs.;38
-57;Ravioli Angelo;26;5;24 - 250 g pkgs.;19.5
-58;Escargots de Bourgogne;27;8;24 pieces;13.25
-59;Raclette Courdavault;28;4;5 kg pkg.;55
-60;Camembert Pierrot;28;4;15 - 300 g rounds;34
-61;Sirop d'érable;29;2;24 - 500 ml bottles;28.5
-62;Tarte au sucre;29;3;48 pies;49.3
-63;Vegie-spread;7;2;15 - 625 g jars;43.9
-64;Wimmers gute Semmelknödel;12;5;20 bags x 4 pieces;33.25
-65;Louisiana Fiery Hot Pepper Sauce;2;2;32 - 8 oz bottles;21.05
-66;Louisiana Hot Spiced Okra;2;2;24 - 8 oz jars;17
-67;Laughing Lumberjack Lager;16;1;24 - 12 oz bottles;14
-68;Scottish Longbreads;8;3;10 boxes x 8 pieces;12.5
-69;Gudbrandsdalsost;15;4;10 kg pkg.;36
-70;Outback Lager;7;1;24 - 355 ml bottles;15
-71;Fløtemysost;15;4;10 - 500 g pkgs.;21.5
-72;Mozzarella di Giovanni;14;4;24 - 200 g pkgs.;34.8
-73;Röd Kaviar;17;8;24 - 150 g jars;15
-74;Longlife Tofu;4;7;5 kg pkg.;10
-75;Rhönbräu Klosterbier;12;1;24 - 0.5 l bottles;7.75
-76;Lakkalikööri;23;1;500 ml;18
-77;Original Frankfurter grüne Soße;12;2;12 boxes;13
+id;product_name;supplier_id;category_id;unit;price;description;imageurl
+1;Chais;1;1;10 boxes x 20 bags;34;"";http://noitrotaigia.com/wp-content/uploads/2016/09/cong-thuc-nuoc-ep-ngon-le-dua-chuot-8.jpg
+2;Chang;1;1;24 - 12 oz bottles;19;;http://i287.photobucket.com/albums/ll138/thienthannho_2008/Mam%20mam/Cocktail/cocktail2.jpg
+3;Aniseed Syrup;1;2;12 - 550 ml bottles;10;;https://vietblend.vn/wp-content/uploads/2018/12/do-uong-da-xay.jpg
+4;Chef Anton's Cajun Seasoning;2;2;48 - 6 oz jars;22;;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7habRNheiKpmCQb1sbkMtmfcCMkxmFhxr1NwJluOLjbY98vLPFA
+5;Chef Anton's Gumbo Mix;2;2;36 boxes;21.35;;https://znews-photo.zadn.vn/w860/Uploaded/qhj_pwqvdvicbu/2019_03_01/levinhhihi.jpg
+6;Grandma's Boysenberry Spread;3;2;12 - 8 oz jars;25;;http://afamilycdn.com/2018/photo-1-1515053364616-1515059407207.jpg
+7;Uncle Bob's Organic Dried Pears;3;7;12 - 1 lb pkgs.;30;;https://img.scoop.it/zGxMvpIPPUYFBAMGZW8uhzl72eJkfbmt4t8yenImKBVvK0kTmF0xjctABnaLJIm9
+8;Northwoods Cranberry Sauce;3;2;12 - 12 oz jars;40;;https://znews-photo.zadn.vn/w660/Uploaded/wyhktpu/2018_11_08/image001_10.jpg
+9;Mishi Kobe Niku;4;6;18 - 500 g pkgs.;97;;http://media.anhp.vn:8081/files/nganpham/NGAN_1231508115549.jpg
+10;Ikura;4;8;12 - 200 ml jars;31;;https://www.bookin.vn/content/images/uploaded/bookin.vn.mon-cayhq1.jpg
+13;Konbu;6;8;2 kg box;6;;http://www.halong.org.vn/wp-content/uploads/2016/11/haemultang-lau-hai-san-dam-da-cua-nguoi-han-quoc.jpg
+14;Tofu;6;7;40 - 100 g pkgs.;23.25;;https://baomoi-photo-1-td.zadn.vn/w700_r1/2018/09/09/348/27649490/0_97895.jpg
+15;Genen Shouyu;6;2;24 - 250 ml bottles;15.5;;https://dayphache.edu.vn/images/phachetonghop/thanh-pham-do-uong-cua-hoc-vien.JPG
+16;Pavlova;7;3;32 - 500 g boxes;17.45;;http://3.bp.blogspot.com/-vSt__uGRok4/VMoAGqpm_RI/AAAAAAAABkc/DUbxWSRimJg/s1600/14.jpg
+17;Alice Mutton;7;6;20 - 1 kg tins;39;;https://chupanhmonan.net/wp-content/uploads/2015/05/chup-anh-mon-an-food-photography-12.jpg
+18;Carnarvon Tigers;7;8;16 kg pkg.;62.5;;https://www.iunauan.com/images/500x-1/anh1-iunauan.com-eqfswc785290000.jpg
+19;Teatime Chocolate Biscuits;8;3;10 boxes x 12 pieces;9.2;;https://merrychristmas.vn/uploads/2014/12/banh-giang-sinh-7.jpg
+20;Sir Rodney's Marmalade;8;3;30 gift boxes;81;;http://joschicake.com/wp-content/uploads/2018/07/red-velvet2.jpg
+21;Sir Rodney's Scones;8;3;24 pkgs. x 4 pieces;10;;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb69Mi5xJRMoILFexe3X_YNKvtfxbMKYzQYBwDbykDHLVmHwHLbg
+22;Gustaf's Knäckebröd;9;5;24 - 500 g pkgs.;21;;https://monngonmoingay.com/wp-content/uploads/2015/08/9.banhmikepgakhia1.png
+23;Tunnbröd;9;5;12 - 250 g pkgs.;9;;https://media.cooky.vn/recipe/g1/6680/s800x500/recipe6680-636416901477509716.jpg
+24;Guaraná Fantástica;10;1;12 - 355 ml cans;4.5;;https://www.chudu24.com/wp-content/uploads/2018/06/ly-thuy-tinh-quai-350ml-3.jpg
+25;NuNuCa Nuß-Nougat-Creme;11;3;20 - 450 g glasses;14;;https://daylambanh.edu.vn/images/congthuclambanh/cach-lam-banh-quy-cookies.jpg
+26;Gumbär Gummibärchen;11;3;100 - 250 g bags;31.23;;https://media.cooky.vn/recipe/g3/22879/s800x500/recipe22879-636440066111457253.jpg
+27;Schoggi Schokolade;11;3;100 - 100 g pieces;43.9;;http://image-us.24h.com.vn/upload/4-2016/images/2016-12-08/1481179252-banh-quy-vong-matcha-giang-sinh7.jpg
+28;Rössle Sauerkraut;12;7;25 - 825 g cans;45.6;;http://media.dulich24.com.vn/bai-viet/diem-den-hap-dan-o-ben-tre-26013004/nhung-mon-ngon-noi-tieng-ben-tre-6.jpg
+29;Thüringer Rostbratwurst;12;6;50 bags x 30 sausgs.;123.79;;http://media.dulich24.com.vn/bai-viet/5-mon-ngon-xu-lang-lam-say-long-du-khach-40024856/5-mon-ngon-xu-lang-lam-say-long-du-khach.jpg
+30;Nord-Ost Matjeshering;13;8;10 - 200 g glasses;25.89;;https://media.cooky.vn/recipe/g2/13032/s800x500/recipe13032-636433116993070346.jpg
+34;Sasquatch Ale;16;1;24 - 12 oz bottles;14;;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlBJb7Lip47J0Qu63pFPV0n7BSUXepG-y3XiH9ST5Nb1ePY0Jh
+35;Steeleye Stout;16;1;24 - 12 oz bottles;18;;https://pastaxi-manager.onepas.vn/content/uploads/articles/vuonghoai/tong-hop-sinh-to-rau-cu/nuoc-ep-5.jpg
+36;Inlagd Sill;17;8;24 - 250 g jars;19;;http://media.songkhoe.vn/medias/songkhoe/archive/images/2016/05/22/150553_ca-chep.jpg
+37;Gravad lax;17;8;12 - 500 g pkgs.;26;;https://znews-photo.zadn.vn/w660/Uploaded/Ohunoaa/2015_02_10/4.jpg
+38;Côte de Blaye;18;1;12 - 75 cl bottles;263.5;;https://media.cooky.vn/recipe/g2/16934/s400x400/recipe16934-635979775269411988.jpg
+39;Chartreuse verte;18;1;750 cc per bottle;18;;http://dumihouse.com/upload/sanpham/i-duong-4138.jpg
+40;Boston Crab Meat;19;8;24 - 4 oz tins;18.4;;https://stix.vn/wp-content/uploads/2016/04/img_home_booking_space.jpg
+41;Jack's New England Clam Chowder;19;8;12 - 12 oz cans;9.65;;https://bantindulich.vn/wp-content/uploads/2018/12/so-veo-nuong-mo-hanh-thom-nuc.jpg
+42;Singaporean Hokkien Fried Mee;20;5;32 - 1 kg pkgs.;14;;https://media.cooky.vn/recipe/g4/31989/s800x500/cooky-recipe-636638132919530406.png
+43;Ipoh Coffee;20;1;16 - 500 g tins;46;;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHrMHdU4nSpGrJQWRAWj5_LBYP2df1olVGgfuZIl33pz7483S8SQ
+44;Gula Malacca;20;2;20 - 2 kg bags;19.45;;http://hong3ly.com/images/Hinh%20Mach%20Nho/Mocktail/hong3ly_mocktail_lac_tien.jpg
+45;Røgede sild;21;8;1k pkg.;9.5;;https://chatbbq.com/wp-content/uploads/2019/01/Mi-xao-hai-san-thom-ngon.jpg
+46;Spegesild;21;8;4 - 450 g glasses;12;;http://8monngonmoingay.com/wp-content/uploads/2016/01/cach-lam-muc-nuong-chao-dam-da-am-thuc-nam-bo.jpg
+47;Zaanse koeken;22;3;10 - 4 oz boxes;9.5;;https://kenhphunu.com/media/tintuc/1442941200/huong-dan-lam-banh-ran-xep-tang-dep-mat.png
+48;Chocolade;22;3;10 pkgs.;12.75;;https://phunutieudung.com.vn/wp-content/uploads/2017/06/cach-lam-banh-bao-chien-ngon-mieng-dep-mat-lai-de-thuc-hien.jpg
+49;Maxilaku;23;3;24 - 50 g pkgs.;20;;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTogc8YM9rhSkiGgVyDAsSLSH8Jblup_B94LdyJQBG_O6Cfaz_8Ww
+50;Valkoinen suklaa;23;3;12 - 100 g bars;16.25;;https://kenh14cdn.com/2018/5/10/banh-bao-1-15259282299671476625444.jpg
+51;Manjimup Dried Apples;24;7;50 - 300 g pkgs.;53;;https://media.laodong.vn/storage/newsportal/2018/1/12/586150/Trua-Nay-An-Gi.jpg
+52;Filo Mix;24;5;16 - 2 kg boxes;7;;https://vntrip.cdn.vccloud.vn/cam-nang/wp-content/uploads/2017/10/Capture-44.png
+53;Perth Pasties;24;6;48 pieces;32.8;;https://anh.24h.com.vn/upload/3-2017/images/2017-09-19/1505816947-mon-ga-chua-xuat-tinh-som-1-1504600548396.jpg
+54;Tourtière;25;6;16 pies;7.45;;https://mav.vn/wp-content/uploads/anh-1_xaqt.jpg
+55;Pâté chinois;25;6;24 boxes x 2 pies;24;;http://zone8.vn/wp-content/uploads/2017/03/27012.jpg
+56;Gnocchi di nonna Alice;26;5;24 - 250 g pkgs.;38;;http://hoiquanamthuc.com/wp-content/uploads/2015/10/banh-cha.jpg
+57;Ravioli Angelo;26;5;24 - 250 g pkgs.;19.5;;https://toinayangi.vn/wp-content/uploads/2014/12/hamburger-bo.jpg
+58;Escargots de Bourgogne;27;8;24 pieces;13.25;;""
+61;Sirop d'érable;29;2;24 - 500 ml bottles;28.5;;http://vivuhanoi.com/wp-content/uploads/2015/12/tra-tao-bac-ha.jpg
+62;Tarte au sucre;29;3;48 pies;49.3;;https://fans.com.vn/wp-content/uploads/2018/11/b%C3%A1n.jpg
+63;Vegie-spread;7;2;15 - 625 g jars;43.9;;https://www.noccoffee.com/images/13062110_1759596780923303_781204263892398364_n.jpg
+64;Wimmers gute Semmelknödel;12;5;20 bags x 4 pieces;33.25;;http://maylambanhmi.net/wp-content/uploads/2016/04/cach-lam-banh-mi-ngot-nhan-dua-10.jpg
+65;Louisiana Fiery Hot Pepper Sauce;2;2;32 - 8 oz bottles;21.05;;https://images.foody.vn/res/g32/315544/s/foody-dong-lan-cafe-873-636203556556143950.jpg
+66;Louisiana Hot Spiced Okra;2;2;24 - 8 oz jars;17;;https://file.hstatic.net/1000044340/file/tra_dau_hoa_lai_cfe43a8605c24fedb289db57646e52e1_grande.jpg
+67;Laughing Lumberjack Lager;16;1;24 - 12 oz bottles;14;;https://vietblend.vn/wp-content/uploads/2018/12/cappuccino.jpg
+68;Scottish Longbreads;8;3;10 boxes x 8 pieces;12.5;;https://blog.beemart.vn/wp-content/uploads/2015/04/cac-mon-banh-ngon-cho-be-voi-cach-lam-don-gian-1.jpg
+70;Outback Lager;7;1;24 - 355 ml bottles;15;;https://huehomestay.net/wp-content/uploads/2018/05/diem-mat-nhung-quan-cafe-o-hue-nhat-dinh-phai-ghe6.jpg
+73;Röd Kaviar;17;8;24 - 150 g jars;15;;http://giadinh.mediacdn.vn/2018/9/15/photo-0-1537004506793392480755.jpg
+74;Longlife Tofu;4;7;5 kg pkg.;10;;https://lh3.googleusercontent.com/BjFgY4Kc-xRGo-3DEheScMPjvm02VDdpsZ5DQ7V2-yIEA3P9aXmoNTEOz5b82uteL28sCd7Bl_9SJhpXFn_FJH0HnZbKGsGwaon8MqvNzM0ahwxgVaZBdRph1G-O_7wTHcfvtfw8L4s-f9Xe
+75;Rhönbräu Klosterbier;12;1;24 - 0.5 l bottles;7.75;;https://product.hstatic.net/1000347095/product/cafephin_master.jpg
+76;Lakkalikööri;23;1;500 ml;18;;https://www.posapp.vn/wp-content/uploads/2017/11/cc.jpg
+77;Original Frankfurter grüne Soße;12;2;12 boxes;13;;https://image-us.24h.com.vn/upload/2-2018/images/2018-04-26/1524730023-47-_mg_6389-1524729202-width650height433.jpg

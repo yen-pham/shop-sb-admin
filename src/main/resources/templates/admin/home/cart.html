@@ -22,6 +22,49 @@
 </head>
 
 <body>
+
+
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade"
+     role="dialog" tabindex="-1" id="btn-checkout">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">CHECKOUT</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal"
+                        type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post"  th:action="@{/admin/orders}">
+
+                    <input name="userModel" th:value="${userModel.getId()}" type="text"/>
+
+                    <div class="form-group">
+                        <label class="col-form-label"  style="display: block">shipper Name :</label>
+                        <select  name="shipperModel">
+                            <option th:each="shipper,iterStat : ${shippers}"
+                                    th:value="${shipper.id}"
+                                    th:text="${shipper.shipperName}"
+                            ></option>
+                        </select>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal"
+                                type="button">Close
+                        </button>
+                        <button class="btn btn-primary" type="submit" >Save
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
     <!-- Search Wrapper Area Start -->
     <div class="search-wrapper section-padding-100">
         <div class="search-close">
@@ -131,7 +174,7 @@
                                 <li><span >total:</span> <span id="total"></span></li>
                             </ul>
                             <div class="cart-btn mt-100">
-                                <a th:href="@{/checkout}" class="btn amado-btn w-100">Checkout</a>
+                                <a data-toggle="modal" data-target="#btn-checkout" class="btn amado-btn w-100">Checkout</a>
                             </div>
                             <div class="cart-btn mt-100">
                                 <a id="button-clear" class="btn amado-btn w-100">Clear</a>

@@ -8,37 +8,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vn.edu.leading.shop.models.OrderModel;
-import vn.edu.leading.shop.services.CustomerService;
-import vn.edu.leading.shop.services.EmployeeService;
 import vn.edu.leading.shop.services.OrderService;
 import vn.edu.leading.shop.services.ShipperService;
 
 import javax.validation.Valid;
+import java.time.Instant;
 
 @Controller
 public class OrderController {
 
     private final OrderService orderService;
 
-    private final CustomerService customerService;
-
-    private final EmployeeService employeeService;
-
     private final ShipperService shipperService;
 
-
-    public OrderController(OrderService orderService, CustomerService customerService, EmployeeService employeeService, ShipperService shipperService) {
+    public OrderController(OrderService orderService, ShipperService shipperService) {
         this.orderService = orderService;
-        this.customerService = customerService;
-        this.employeeService = employeeService;
         this.shipperService = shipperService;
     }
+
 
     @GetMapping("/admin/orders")
     public String orders(Model model) {
         model.addAttribute("orders", orderService.findAll());
-        model.addAttribute("employees", employeeService.findAll());
-        model.addAttribute("customers", customerService.findAll());
         model.addAttribute("shippers", shipperService.findAll());
         return "admin/pages/orders";
     }
@@ -48,10 +39,11 @@ public class OrderController {
         if (result.hasErrors()) {
             return "admin/pages/orders";
         }
+        if(order.getId() == null){
+            order.setOrderDate(String.valueOf(Instant.now()));
+        }
         orderService.save(order);
         model.addAttribute("orders", orderService.findAll());
-        model.addAttribute("employees", employeeService.findAll());
-        model.addAttribute("customers", customerService.findAll());
         model.addAttribute("shippers", shipperService.findAll());
         redirect.addFlashAttribute("successMessage", "Saved order successfully!");
         return "admin/pages/orders";
@@ -62,15 +54,11 @@ public class OrderController {
         if (orderService.delete(id)) {
             redirect.addFlashAttribute("successMessage", "Deleted order successfully!");
             model.addAttribute("orders", orderService.findAll());
-            model.addAttribute("employees", employeeService.findAll());
-            model.addAttribute("customers", customerService.findAll());
             model.addAttribute("shippers", shipperService.findAll());
             return "admin/pages/orders";
         } else {
             redirect.addFlashAttribute("successMessage", "Not found!!!");
             model.addAttribute("orders", orderService.findAll());
-            model.addAttribute("employees", employeeService.findAll());
-            model.addAttribute("customers", customerService.findAll());
             model.addAttribute("shippers", shipperService.findAll());
             return "admin/pages/orders";
         }
