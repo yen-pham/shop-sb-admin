@@ -237,7 +237,7 @@
                 <div class="col-12 col-sm-6 col-md-12 col-xl-6"  th:each="product1,iterStat : ${category.getProducts()}">
                     <div class="single-product-wrapper">
                         <!-- Product Image -->
-                        <a th:href="@{/productdetail/{id}(id=${product1.id})}">
+                        <a th:href="@{/product-detail/{id}/{str}(id=${product1.id}, str=${product1.productName})}">
                         <div class="product-img">
                             <!--<figure>-->
                            <img th:src="${product1.getImageurl()}" style="width: auto; height: 300px;position: relative; "  alt="">
@@ -355,7 +355,10 @@
                                         <a class="nav-link" href="cart.html">Cart</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="checkout.html">Checkout</a>
+                                        <a class="nav-link" th:href="@{/checkout}">Checkout</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{/login}">Login</a>
                                     </li>
                                 </ul>
                             </div>

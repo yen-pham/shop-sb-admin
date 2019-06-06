@@ -4,13 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import vn.edu.leading.shop.models.CategoryModel;
+import vn.edu.leading.shop.configs.IAuthenticationFacade;
+import vn.edu.leading.shop.models.UserModel;
 import vn.edu.leading.shop.services.CategoryService;
 import vn.edu.leading.shop.services.ProductService;
-import vn.edu.leading.shop.services.SupplierService;
-
-import java.util.Optional;
+import vn.edu.leading.shop.services.UserService;
 
 @Controller
 public class HomeController {
@@ -18,20 +16,23 @@ public class HomeController {
     public final CategoryService categoryService;
 
     private final ProductService productService;
+    private final UserService userService;
 
-    private final SupplierService supplierService;
+    private final IAuthenticationFacade authentication;
 
-    public HomeController(CategoryService categoryService, ProductService productService, SupplierService supplierService) {
+    public HomeController(CategoryService categoryService, ProductService productService, UserService userService, IAuthenticationFacade authentication) {
         this.categoryService = categoryService;
         this.productService = productService;
-        this.supplierService = supplierService;
+        this.userService = userService;
+        this.authentication = authentication;
     }
 
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("products", productService.findAll());
         model.addAttribute("categories", categoryService.findAll());
-        model.addAttribute("suppliers", supplierService.findAll());
+        UserModel userModel = userService.findByUsername(authentication.getAuthentication().getName()).orElse(new UserModel());
+        model.addAttribute("userModel", userModel);
         return "admin/home/shop";
     }
 
@@ -42,9 +43,10 @@ public class HomeController {
 //          return  "admin/home/shop";
 //    }
 
-    @GetMapping("/productdetail/{id}")
-    public String product(@PathVariable("id") Long id,Model model) {
+    @GetMapping("/product-detail/{id}/{str}")
+    public String product(@PathVariable("id") Long id, Model model, @PathVariable String str) {
         model.addAttribute("productModel", productService.findById(id));
+        model.addAttribute("metaname",str);
 
         return "admin/home/product-details";
     }
@@ -52,5 +54,10 @@ public class HomeController {
     @GetMapping("/add-to-cart")
     public String addToCart() {
         return "admin/home/cart";
+    }
+
+    @GetMapping("/checkout")
+    public String checkout() {
+        return "admin/home/checkout";
     }
 }

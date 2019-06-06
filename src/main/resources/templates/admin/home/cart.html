@@ -73,7 +73,7 @@
                     <li><a th:href="@{/}">Shop</a></li>
                     <li><a href="product-details.html">Product</a></li>
                     <li class="active"><a th:href="@{/add-to-cart}">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a th:href="@{/checkout}">Checkout</a></li>
                 </ul>
             </nav>
             <!-- Button Group -->
@@ -132,7 +132,7 @@
                                 <li><span>total:</span> <span>$140.00</span></li>
                             </ul>
                             <div class="cart-btn mt-100">
-                                <a href="cart.html" class="btn amado-btn w-100">Checkout</a>
+                                <a th:href="@{/checkout}" class="btn amado-btn w-100">Checkout</a>
                             </div>
                             <div class="cart-btn mt-100">
                                 <a id="button-clear" class="btn amado-btn w-100">Clear</a>
@@ -211,7 +211,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                             <a class="nav-link" href="cart.html">Cart</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="checkout.html">Checkout</a>
+                                            <a class="nav-link" th:href="@{/checkout}">Checkout</a>
                                         </li>
                                     </ul>
                                 </div>
