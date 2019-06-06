@@ -67,6 +67,7 @@ function displaycart() {
 
         $("#table-products > tbody").html("");
         // Duyệt qua mảng cart để append từng item dòng vào table
+        var total = 0;
         $.each(cart, function (index, item) {
             var htmlString = "";
             htmlString += "<tr>";
@@ -77,8 +78,11 @@ function displaycart() {
             htmlString += "<td style='text-align: left'>$" + item.price * item.quantity + "</td>";
             htmlString += "</tr>";
 
+            total+=item.price * item.quantity;
             $("#table-products > tbody:last").append(htmlString);
 
         });
+
+        $("#total").text(total);
     }
 }
