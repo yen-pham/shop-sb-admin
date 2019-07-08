@@ -1,6 +1,5 @@
 package vn.edu.leading.shop.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,6 +36,6 @@ public class ShipperModel extends BaseModel<ShipperModel> {
     )
     @Fetch(FetchMode.SELECT)
     @BatchSize(size = 50)
-    @JsonBackReference
+
     private List<OrderModel> orders = new ArrayList<>();
 }

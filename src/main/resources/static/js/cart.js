@@ -1,17 +1,17 @@
 var cart = [];
+var index = 0;
 
 $(document).ready(function () {
     // Kiểm tra nếu đã có sessionStorage["shopping-cart-items"] hay chưa?
     if (sessionStorage["shopping-cart-items"] != null) {
         cart = JSON.parse(sessionStorage["shopping-cart-items"].toString());
     }
-
     // Hiển thị thông tin từ giỏ hàng
     displaycart();
 });
 
 
-// Sự kiện click các button có class=".add-to-cart"
+// Sự kiện click các$(".add-to-cart").click(function () { button có class=".add-to-cart"
 $(".add-to-cart").click(function () {
     var button = $(this); // Lấy đối tượng button mà người dùng click
     var id = button.attr("id"); // id của sản phẩm là id của button
@@ -19,6 +19,7 @@ $(".add-to-cart").click(function () {
     var price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button
     var quantity = 1; // Số lượng
     var imageurl = button.attr("data-imageurl");
+
 
 
     var item = {
@@ -59,7 +60,11 @@ $("#button-clear").click(function () {
     $("#table-products > tbody").html("");
 });
 
-
+$("#button-clear2").click(function () {
+    cart = [];
+    sessionStorage["shopping-cart-items"] = JSON.stringify(cart);
+    $("#table-products > tbody").html("");
+});
 // Hiển thị giỏ hàng ra table
 function displaycart() {
     if (sessionStorage["shopping-cart-items"] != null) {
@@ -68,6 +73,7 @@ function displaycart() {
         $("#table-products > tbody").html("");
         // Duyệt qua mảng cart để append từng item dòng vào table
         var total = 0;
+
         $.each(cart, function (index, item) {
             var htmlString = "";
             htmlString += "<tr>";
@@ -79,10 +85,14 @@ function displaycart() {
             htmlString += "</tr>";
 
             total+=item.price * item.quantity;
+            index += 1;
             $("#table-products > tbody:last").append(htmlString);
+
 
         });
 
         $("#total").text(total);
+        $(".index-cart").text(index);
+
     }
 }

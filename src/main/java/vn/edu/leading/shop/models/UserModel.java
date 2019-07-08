@@ -1,6 +1,5 @@
 package vn.edu.leading.shop.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -88,6 +87,5 @@ public class UserModel extends BaseModel<UserModel> {
     )
     @Fetch(FetchMode.SELECT)
     @BatchSize(size = 50)
-    @JsonBackReference
     private List<OrderModel> orders = new ArrayList<>();
 }

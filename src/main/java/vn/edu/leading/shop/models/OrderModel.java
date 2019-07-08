@@ -1,7 +1,5 @@
 package vn.edu.leading.shop.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,13 +26,11 @@ public class OrderModel extends BaseModel<OrderModel> {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     @BatchSize(size = 50)
-    @JsonManagedReference
     private UserModel userModel;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "shipper_id", nullable = false)
     @BatchSize(size = 50)
-    @JsonManagedReference
     private ShipperModel shipperModel;
 
     @OneToMany(
@@ -45,6 +41,5 @@ public class OrderModel extends BaseModel<OrderModel> {
     )
     @Fetch(FetchMode.SELECT)
     @BatchSize(size = 50)
-    @JsonBackReference
     private List<OrderDetailModel> orderDetails = new ArrayList<>();
 }

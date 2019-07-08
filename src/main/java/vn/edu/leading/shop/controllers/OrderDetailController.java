@@ -11,6 +11,7 @@ import vn.edu.leading.shop.models.OrderDetailModel;
 import vn.edu.leading.shop.services.OrderDetailService;
 import vn.edu.leading.shop.services.OrderService;
 import vn.edu.leading.shop.services.ProductService;
+import vn.edu.leading.shop.services.UserService;
 
 import javax.validation.Valid;
 
@@ -23,10 +24,13 @@ public class OrderDetailController {
 
     private final ProductService productService;
 
-    public OrderDetailController(OrderDetailService orderDetailService, OrderService orderService, ProductService productService) {
+    private final UserService userService;
+
+    public OrderDetailController(OrderDetailService orderDetailService, OrderService orderService, ProductService productService, UserService userService) {
         this.orderDetailService = orderDetailService;
         this.orderService = orderService;
         this.productService = productService;
+        this.userService = userService;
     }
 
     @GetMapping("/admin/orderDetails")
@@ -34,6 +38,7 @@ public class OrderDetailController {
         model.addAttribute("orderDetails", orderDetailService.findAll());
         model.addAttribute("products", productService.findAll());
         model.addAttribute("orders", orderService.findAll());
+        model.addAttribute("users", userService.findAll());
         return "admin/pages/orderDetails";
     }
 
@@ -46,6 +51,7 @@ public class OrderDetailController {
         model.addAttribute("products", productService.findAll());
         model.addAttribute("orders", orderService.findAll());
         model.addAttribute("orderDetails", orderDetailService.findAll());
+        model.addAttribute("users", userService.findAll());
         redirect.addFlashAttribute("successMessage", "Saved product successfully!");
         return "admin/pages/orderDetails";
     }
@@ -54,10 +60,10 @@ public class OrderDetailController {
     public String delete(@PathVariable Long id, RedirectAttributes redirect) {
         if (orderDetailService.delete(id)) {
             redirect.addFlashAttribute("successMessage", "Deleted orderDetails successfully!");
-            return "redirect:/orderDetails";
+            return "admin/pages/orderDetails";
         } else {
             redirect.addFlashAttribute("successMessage", "Not found!!!");
-            return "redirect:/orderDetails";
+            return "admin/pages/orderDetails";
         }
     }
 }

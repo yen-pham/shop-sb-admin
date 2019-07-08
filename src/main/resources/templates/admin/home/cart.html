@@ -18,6 +18,7 @@
     <!-- Core Style CSS -->
     <link rel="stylesheet" th:href="@{/css/core-style.css}">
     <link rel="stylesheet" th:href="@{/style.css}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
@@ -36,9 +37,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#" method="post"  th:action="@{/admin/orders}">
-
-                    <input name="userModel" th:value="${userModel.getId()}" type="text"/>
+                <form action="#" method="post" th:action="@{/cart-orders}">
 
                     <div class="form-group">
                         <label class="col-form-label"  style="display: block">shipper Name :</label>
@@ -54,7 +53,7 @@
                         <button class="btn btn-secondary" data-dismiss="modal"
                                 type="button">Close
                         </button>
-                        <button class="btn btn-primary" type="submit" >Save
+                        <button class="btn btn-primary" id="button-clear2" type="submit">Save
                         </button>
                     </div>
                 </form>
@@ -126,7 +125,8 @@
             </div>
             <!-- Cart Menu -->
             <div class="cart-fav-search mb-100">
-                <a th:href="@{/add-to-cart}" class="cart-nav"><img src="img/core-img/cart.png" alt=""> Cart <span>(0)</span></a>
+                <a class="cart-nav" th:href="@{/add-to-cart}"><img alt="" src="img/core-img/cart.png"> Cart <span
+                        class="index-cart"></span></a>
                 <a href="#" class="fav-nav"><img src="img/core-img/favorites.png" alt=""> Favourite</a>
                 <a href="#" class="search-nav"><img src="img/core-img/search.png" alt=""> Search</a>
             </div>

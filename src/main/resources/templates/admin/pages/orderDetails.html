@@ -61,11 +61,12 @@
                                         <form action="#" method="post"  th:action="@{/admin/orderDetails}">
 
                                             <div class="form-group">
-                                                <label class="col-form-label"  style="display: block">Order Name :</label>
-                                                <select  name="orderModel">
-                                                    <option th:each="order,iterStat : ${orders}"
-                                                            th:value="${order.id}"
-                                                            th:text="${order.customerModel.customerName}"></option>
+                                                <label class="col-form-label" style="display: block">Customer Name
+                                                    :</label>
+                                                <select name="users">
+                                                    <option th:each="user,iterStat : ${users}"
+                                                            th:text="${user.username}"
+                                                            th:value="${user.id}"></option>
                                                 </select>
                                             </div>
 
@@ -126,7 +127,7 @@
                                 <tbody>
                                 <tr th:each="orderDetail,iterStat : ${orderDetails}">
                                     <th scope="row" th:text="${iterStat.count}"></th>
-                                    <td th:text="${orderDetail.getOrderModel().getCustomerModel().getCustomerName()}"></td>
+                                    <td th:text="${orderDetail.getOrderModel().getUserModel().username}"></td>
                                     <td th:text="${orderDetail.getProductModel().getProductName()}"></td>
                                     <td th:text="${orderDetail.quantity}"></td>
                                     <td>
@@ -153,12 +154,13 @@
                                                             <input name="id" th:value="*{id}" type="hidden"/>
 
                                                             <div class="form-group">
-                                                                <label class="col-form-label"  style="display: block">Order Name :</label>
-                                                                <select  name="orderModel">
-                                                                    <option th:each="order,iterStat : ${orders}"
-                                                                            th:value="${order.id}"
-                                                                            th:text="${order.customerModel.customerName}"
-                                                                            th:selected="${order.id==orderDetail.orderModel.id}"></option>
+                                                                <label class="col-form-label" for="recipient-name"
+                                                                       style="display: block">Customer Name :</label>
+                                                                <select name="users">
+                                                                    <option th:each="user,iterStat : ${users}"
+                                                                            th:selected="${user.id==order.userModel.id}"
+                                                                            th:text="${user.username}"
+                                                                            th:value="${user.id}"></option>
                                                                 </select>
                                                             </div>
 
